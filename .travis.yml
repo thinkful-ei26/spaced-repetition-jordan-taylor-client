@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: DY3s/+u37xel/Dj2k36Ih9wAlD9btOLUYGJpK4nAs3APZTtxW4yUL1HHtLrPGpQdRENFVfW4AD5uLCmRW/38uPYNZzsrzYrjRj2zqmzlY57OH0pYQqKfXe7+muFxahOk36D2czVGpMy611HylDLDBXPxTy/ulG5MZJnxuUuinPoxVZDi82yKENSakCMa7ra7CPjAt7FuIjGVrxuCyuD9jaUD2+ds44EG6SM7tRNMJrpF62PPnLYuZPIbXGa4kmOGr83+ofZU7F08buQaGpNGA8pklLU8JQQnrWUmZ9JkOcTun1SAjs8iN5aleI0Q9zm8T7zYcZbdYuq6LvUsm75CS/Pet3xgmNYGJBlMIqmRgAfPy9zngqEBFGiVL+WuiGIrwWEnAPQ3+z/aA4HM8ogK3wSl0diFnVS+rz47ftv9/x31o4hRlrphRz6KYVs93UZqIxTf5U5jp2/kgBYPQky6z3NmJy8QEDZ3ko4LGJWl0N0tZ4OeWQhppnmu/tGxNBpDZ74zL0tcnQUEqbL8yxsqmwnyoI/uhjBsvU1BrmBvUAqGd2nmQbg/VKka9gxFyMv9BkK4OI2xoCG0WR4wWeAuZoyzQcTKw6R3RiL8884appl+PtSyztHEnuS6+HNc+vnjvckZscdefCHdrRUsj+0gq3SL+3prnoflcvRYA08FWGI=
+  app: spaced-repetition-client
+  on:
+    repo: thinkful-ei26/spaced-repetition-jordan-taylor-client
