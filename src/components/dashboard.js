@@ -36,7 +36,9 @@ const mapStateToProps = state => {
     return {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
-        protectedData: state.protectedData.protectedData
+        protectedData: state.protectedData.protectedData,
+        question: state.question,
+        id: state.auth.currentUser.id,
     };
 };
 
