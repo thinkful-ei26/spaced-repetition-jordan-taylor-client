@@ -16,14 +16,10 @@ export class Dashboard extends React.Component {
                     Username: {this.props.username}
                 </div> */}
                 <div className="dashboard-name">Hello {this.props.name.toUpperCase()}</div>
-                {/* <div className="dashboard-protected-data">
+                <div className="dashboard-protected-data">
                     Protected data: {this.props.protectedData}
-<<<<<<< HEAD
-                </div> */}
-=======
                 </div>
                 <Feedback />
->>>>>>> 0c124ec89b794d63cced12f8adbfad9b7875c092
             </div>
         );
     }
@@ -34,7 +30,7 @@ const mapStateToProps = state => {
     return {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
-        protectedData: state.protectedData.data
+        protectedData: state.protectedData.protectedData
     };
 };
 
