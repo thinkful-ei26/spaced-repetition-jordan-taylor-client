@@ -42,8 +42,19 @@ a {
   color: rgb(0, 0, 0);
 }
 
+.home {
+  background-color: #ffffff;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(6px + 2vmin);
+  color: rgb(0, 0, 0);
+  margin: 2px;
+  /* word-wrap: break-word; */
+}
+
 .header-bar {
-  background-color: #7fe68d;
+  background-color: #aaf3e3;
   min-height: 40vh;
   display: flex;
   margin: 10px;
