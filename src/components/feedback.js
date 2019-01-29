@@ -28,23 +28,23 @@ const answers = (data) => {
 
     if (answerOne.includes(answerOneResponse)){
         correct++
-        return data[0].answer, "Correct!"
+        return data[0].answer + "Correct!"
     }
     if (answerTwo.includes(answerTwoResponse)){
         correct++
-        return data[1].answer, "Correct!"
+        return data[1].answer + "Correct!"
     }
     if (answerThree.includes(answerThreeResponse)){
         correct++
-        return data[2].answer, "Correct!"
+        return data[2].answer + "Correct!"
     }
     if (answerFour.includes(answerFourResponse)){
         correct++
-        return data[3].answer, "Correct!"
+        return data[3].answer + "Correct!"
     }
     if (answerFive.includes(answerFiveResponse)){
         correct++
-        return data[4].answer, "Correct!"
+        return data[4].answer + "Correct!"
     }
     else{
         incorrect++
