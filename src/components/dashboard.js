@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
+import Feedback from './feedback';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -17,7 +18,12 @@ export class Dashboard extends React.Component {
                 <div className="dashboard-name">Hello {this.props.name.toUpperCase()}</div>
                 {/* <div className="dashboard-protected-data">
                     Protected data: {this.props.protectedData}
+<<<<<<< HEAD
                 </div> */}
+=======
+                </div>
+                <Feedback />
+>>>>>>> 0c124ec89b794d63cced12f8adbfad9b7875c092
             </div>
         );
     }
