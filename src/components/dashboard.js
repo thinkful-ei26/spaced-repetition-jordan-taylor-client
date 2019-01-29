@@ -4,6 +4,7 @@ import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import Feedback from './feedback';
 import Next from './next-button';
+import UserProgress from './user-progress';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -18,11 +19,11 @@ export class Dashboard extends React.Component {
                 </div> */}
                 <div className="dashboard-name">Hello {this.props.name.toUpperCase()}</div>
                 <div className="dashboard-current-score">
-                Your current score is: 
+                Your current score is: <UserProgress />
                 </div>
-                <div className="dashboard-protected-data">
+                {/* <div className="dashboard-protected-data">
                     Protected data: {this.props.protectedData}
-                </div>
+                </div> */}
                 <Feedback />
                 <Next />
             </div>
