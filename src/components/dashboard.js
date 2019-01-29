@@ -5,6 +5,7 @@ import {fetchProtectedData} from '../actions/protected-data';
 import Feedback from './feedback';
 import Next from './next-button';
 import UserProgress from './user-progress';
+import DisplayWords from './displayWords';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -25,6 +26,7 @@ export class Dashboard extends React.Component {
                     Protected data: {this.props.protectedData}
                 </div> */}
                 <Feedback />
+                <DisplayWords />
                 <Next />
             </div>
         );
