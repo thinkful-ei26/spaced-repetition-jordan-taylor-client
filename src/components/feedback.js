@@ -3,17 +3,44 @@ import { connect } from 'react-redux';
 
 import AnswerModal from './answers-modal';
 
-// const answers = (data) => {
+let correct = 0;
+let incorrect = 0;
 
-// }
+const answers = (data) => {
+    if (!data) {
+        throw new Error('Uh Oh! Something went wrong')
+    }
+
+    const answerOne = data[0].answer
+    const answerOneResponse = "most recent version" && "ECMAScript"
+    const answerTwo = data[1].answer
+    const answerTwoResponse = "syntax extension" && "javascript" && "camel case"
+    const answerThree = data[2].answer
+    const answerThreeResponse = "building blocks" && "immutable" 
+
+    if (answerOne.includes(answerOneResponse)){
+        correct++
+        return true
+    }
+    if (answerTwo.includes(answerTwoResponse)){
+        correct++
+        return true
+    }
+    if (answerThree.includes(answerThreeResponse)){
+        correct++
+        return true
+    }
+    else{
+        incorrect++
+        return false
+    }
+}
 
 const feedback = (data) => {
     if (!data) {
         throw new Error('Uh Oh! Something went wrong')
     }
 
-    const correct = data.filter(answer => answer === true).length;
-    const incorrect = data.filter(answer => answer === false).length;
     const correctRounded = Math.round(correct * 100 / data.length);
     const incorrectRounded = Math.round(incorrect * 100 / data.length);
     const score = Math.round(correctRounded + incorrectRounded / 10) * 10;
@@ -59,6 +86,7 @@ class Feedback extends Component {
         this.state = {
             data: [],
             isLoaded: false,
+            currentAnswer: '',
             currentFeedback: '',
             modalOpen: false,
         }
@@ -72,6 +100,7 @@ class Feedback extends Component {
 
     handleFormSubmit(results){
         this.setState({
+            currentAnswer: answers(results),
             currentFeedback: feedback(results),
             modalOpen: true
         })
