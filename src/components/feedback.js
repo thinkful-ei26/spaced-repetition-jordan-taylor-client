@@ -118,7 +118,6 @@ class Feedback extends Component {
             </div>
         )
     }
-
 }
 
 const mapStateToProps = (state) => {

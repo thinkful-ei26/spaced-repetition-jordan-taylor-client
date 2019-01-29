@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import Feedback from './feedback';
-import DisplayWords from './displayWords';
+import Next from './next-button';
+import UserProgress from './user-progress';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -17,10 +18,14 @@ export class Dashboard extends React.Component {
                     Username: {this.props.username}
                 </div> */}
                 <div className="dashboard-name">Hello {this.props.name.toUpperCase()}</div>
+                <div className="dashboard-current-score">
+                Your current score is: <UserProgress />
+                </div>
                 {/* <div className="dashboard-protected-data">
                     Protected data: {this.props.protectedData}
                 </div> */}
-                <DisplayWords />
+                <Feedback />
+                <Next />
             </div>
         );
     }
@@ -31,7 +36,9 @@ const mapStateToProps = state => {
     return {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
-        protectedData: state.protectedData.data
+        protectedData: state.protectedData.protectedData,
+        question: state.question,
+        id: state.auth.currentUser.id,
     };
 };
 

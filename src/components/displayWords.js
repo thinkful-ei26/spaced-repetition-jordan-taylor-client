@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 class DisplayWords extends React.Component {
 
-    render(){
+    render() {
         const questionCard = () => {
             console.log(this.props);
             if(this.props.protectedData.length !== 0){
