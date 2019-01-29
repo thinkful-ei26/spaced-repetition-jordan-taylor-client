@@ -13,22 +13,38 @@ const answers = (data) => {
 
     const answerOne = data[0].answer
     const answerOneResponse = "most recent version" && "ECMAScript"
+    
     const answerTwo = data[1].answer
     const answerTwoResponse = "syntax extension" && "javascript" && "camel case"
+    
     const answerThree = data[2].answer
     const answerThreeResponse = "building blocks" && "immutable" 
 
+    const answerFour = data[3].answer
+    const answerFourResponse = "reusable" && "return a React element"
+    
+    const answerFive = data[4].answer
+    const answerFiveResponse = "inputs" && "data passed" && "parent component to a child component" 
+
     if (answerOne.includes(answerOneResponse)){
         correct++
-        return true
+        return data[0].answer, "Correct!"
     }
     if (answerTwo.includes(answerTwoResponse)){
         correct++
-        return true
+        return data[1].answer, "Correct!"
     }
     if (answerThree.includes(answerThreeResponse)){
         correct++
-        return true
+        return data[2].answer, "Correct!"
+    }
+    if (answerFour.includes(answerFourResponse)){
+        correct++
+        return data[3].answer, "Correct!"
+    }
+    if (answerFive.includes(answerFiveResponse)){
+        correct++
+        return data[4].answer, "Correct!"
     }
     else{
         incorrect++
