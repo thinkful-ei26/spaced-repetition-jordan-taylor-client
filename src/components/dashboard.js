@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import Feedback from './feedback';
+import Next from './next-button';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -20,6 +21,7 @@ export class Dashboard extends React.Component {
                     Protected data: {this.props.protectedData}
                 </div>
                 <Feedback />
+                <Next />
             </div>
         );
     }
