@@ -111,6 +111,7 @@ class Feedback extends Component {
             <div>
                 <AnswerModal 
                     modalOpen={this.state.modalOpen}
+                    answer={this.state.currentAnswer}
                     feedback={this.state.currentFeedback}
                     formSubmit={(e) => this.handleFormSubmit(e)}
                     closeModal={(e) => this.closeModal}
