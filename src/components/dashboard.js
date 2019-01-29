@@ -18,17 +18,12 @@ export class Dashboard extends React.Component {
                 <div className="dashboard-name">Hello {this.props.name.toUpperCase()}</div>
                 {/* <div className="dashboard-protected-data">
                     Protected data: {this.props.protectedData}
-<<<<<<< HEAD
                 </div> */}
-=======
-                </div>
-                <Feedback />
->>>>>>> 0c124ec89b794d63cced12f8adbfad9b7875c092
             </div>
         );
     }
 }
-
+//
 const mapStateToProps = state => {
     const {currentUser} = state.auth;
     return {
