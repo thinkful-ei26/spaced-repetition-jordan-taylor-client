@@ -3,32 +3,6 @@ import { connect } from 'react-redux';
 
 import AnswerModal from './answers-modal';
 
-let correct = 0;
-let incorrect = 0;
-
-const answers = (currentQuestion) => {
-    if (!currentQuestion) {
-        throw new Error('Uh Oh! Something went wrong')
-    }
-
-    // const answerOne = data[0].answer
-    // const answerOneResponse = "most recent version" && "ECMAScript"
-    // const answerTwo = data[1].answer
-    // const answerTwoResponse = "syntax extension" && "javascript" && "camel case"
-    // const answerThree = data[2].answer
-    // const answerThreeResponse = "building blocks" && "immutable" 
-
-    if (currentQuestion.question.includes(currentQuestion.answer)){
-        correct++
-        return true
-    } 
-
-    else{
-        incorrect++
-        return false
-    }
-}
-
 const score = (data) => {
     if (!data) {
         throw new Error('Uh Oh! Something went wrong')
@@ -74,21 +48,9 @@ const score = (data) => {
 }
 
 class Feedback extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            userQuestions: [],
-            isLoaded: false,
-            currentAnswer: '',
-            currentScore: '%',
-            modalOpen: false,
-        }
-    }
 
     closeModal() {
-        this.setState({
-            modalOpen: false
-        });
+        
     }
 
     render(){
