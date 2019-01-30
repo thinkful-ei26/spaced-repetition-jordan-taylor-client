@@ -40,7 +40,7 @@ class DisplayWords extends React.Component {
 
     submit(answer){
         if (answer){
-            this.props.formSubmit(answer)
+            
         }
     }
 
