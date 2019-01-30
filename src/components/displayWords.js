@@ -6,8 +6,8 @@ class DisplayWords extends React.Component {
     render() {
         const questionCard = () => {
             console.log(this.props);
-            if(this.props.protectedData.length !== 0){
-              const resultArray =  this.props.protectedData.map(object => {
+            if(this.props.questions.length !== 0){
+              const resultArray =  this.props.questions.map(object => {
                     console.log('object we are mapping over:', object.question);
                     return <div>{object.question}</div>
                 }
@@ -32,6 +32,7 @@ const mapStateToProps = state => {
     return {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
+        questions:currentUser.questions,
         protectedData: state.protectedData.data, 
     };
 };
