@@ -8,9 +8,9 @@ const score = (data) => {
         throw new Error('Uh Oh! Something went wrong')
     }
 
-    const correctRounded = Math.round(correct * 100 / data.length);
-    const incorrectRounded = Math.round(incorrect * 100 / data.length);
-    const score = Math.round(correctRounded + incorrectRounded / 10) * 10;
+    // const correctRounded = Math.round(correct * 100 / data.length);
+    // const incorrectRounded = Math.round(incorrect * 100 / data.length);
+    // const score = Math.round(correctRounded + incorrectRounded / 10) * 10;
 
     if (score === 100){
         return 'Current Score = 100%'

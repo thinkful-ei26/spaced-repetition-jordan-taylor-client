@@ -12,10 +12,10 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-            <h2>Welcome To Learn React!</h2>
-            <h3>Here you will learn core web dev and react.js concepts through a technique known as 'Spaced-Repetition'.<br/>
-            You will be shown key terms, and asked to answer with corresponding definitions. Yes, we will be keeping score!<br/>
-            In order to test your memory further, the questions become more spaced out as you answer.</h3>
+            <h2>Welcome To Alternis Vicibus</h2>
+            <h3>Learn common medical terminology more efficiently using our app.<br/>
+            You will be shown key medical terms, and asked to submit it's english counter-part.<br/> Yes, we will be keeping score!<br/><br/>
+            Questions become more spaced out based on your answers.</h3>
             <LoginForm />
             <label>Don't Have An Account? Create One </label>
             <Link to="/register">Here</Link>
