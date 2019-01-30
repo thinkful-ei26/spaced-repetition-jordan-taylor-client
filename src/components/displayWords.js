@@ -3,26 +3,43 @@ import {connect} from 'react-redux';
 import { fetchProtectedData } from '../actions/protected-data';
 
 class DisplayWords extends React.Component {
+    constructor(){
+        super();
+
+        this.state = {
+            submit: false
+        }
+    }
     componentDidMount(){
         this.props.dispatch(fetchProtectedData());
         // this.props.dispatch(fetchQuestion());
     }
 
+    // submit(input)
+    //     if (input){
+    //         this.setState({
+    //             submit: true,
+    //         })
+    //     }
+
 
     render() {
 
+        // const questionCard = () => {
+        //     console.log(this.props);
+        //     if(this.props.protectedData.length !== 0){
+        //       let resultArray =  this.props.protectedData.questions.map(object => {
+        //             return <div>{object.question}</div>
+        //         });
+        //       return resultArray
+        //     }
+        //     else {
+        //         return (<div>pulling in the knowledge you seek...</div>)
+        //     }
+        // }
+
         const questionCard = () => {
-            console.log(this.props);
-            if(this.props.protectedData.length !== 0){
-              let resultArray =  this.props.protectedData.questions.map(object => {
-                    return <div>{object.question}</div>
-                });
-              let currentResult = resultArray[0]
-                return currentResult;
-            }
-            else {
-                return (<div>pulling in the knowledge you seek...</div>)
-            }
+            return <div>{this.props.data.current.value.question}</div>
         }
 
         return (
@@ -39,11 +56,12 @@ class DisplayWords extends React.Component {
 
 const mapStateToProps = state => {
     const {currentUser} = state.auth;
+    console.log('state:', state)
     return {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         protectedData: state.protectedData.data, 
-        currentQuestion: state.protectedData.data.value,
+        // currentQuestion: state.protectedData.current.value,
     };
 };
 
