@@ -38,13 +38,31 @@ class DisplayWords extends React.Component {
         //     }
         // }
 
-        const questionCard = () => {
-            return <div>{this.props.data.current.value.question}</div>
+        const questionToDisplay = () => {
+            if(this.props.protectedData){
+                return (
+                    <div>
+                        {this.props.protectedData.data}
+                    </div> 
+                )
+            }
+            if(this.props.protectedData.data) {
+                return (
+                    <div>
+                        {this.props.protectedData.data.current}
+                    </div> 
+                )        
+            }
+            return (
+                <div>
+            {this.props.protectedData.data.current.value.question}
+                </div>
+            )
         }
 
         return (
             <div>
-                <h1 className="current-question">                  {questionCard()}
+                <h1 className="current-question">                  {questionToDisplay()}
                 </h1>
                 <input className ="input" type="search" ref={input => (this.input = input)} />
                 <button type="submit" className ="submit-button">Check Answer</button>
@@ -61,7 +79,8 @@ const mapStateToProps = state => {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         protectedData: state.protectedData.data, 
-        // currentQuestion: state.protectedData.current.value,
+        // current: state.protectedData.data.current.value,
+        // next: state.protectedData.data.current.value,
     };
 };
 
