@@ -6,37 +6,30 @@ import AnswerModal from './answers-modal';
 let correct = 0;
 let incorrect = 0;
 
-const answers = (data) => {
-    if (!data) {
+const answers = (currentQuestion) => {
+    if (!currentQuestion) {
         throw new Error('Uh Oh! Something went wrong')
     }
 
-    const answerOne = data[0].answer
-    const answerOneResponse = "most recent version" && "ECMAScript"
-    const answerTwo = data[1].answer
-    const answerTwoResponse = "syntax extension" && "javascript" && "camel case"
-    const answerThree = data[2].answer
-    const answerThreeResponse = "building blocks" && "immutable" 
+    // const answerOne = data[0].answer
+    // const answerOneResponse = "most recent version" && "ECMAScript"
+    // const answerTwo = data[1].answer
+    // const answerTwoResponse = "syntax extension" && "javascript" && "camel case"
+    // const answerThree = data[2].answer
+    // const answerThreeResponse = "building blocks" && "immutable" 
 
-    if (answerOne.includes(answerOneResponse)){
+    if (currentQuestion.question.includes(currentQuestion.answer)){
         correct++
         return true
-    }
-    if (answerTwo.includes(answerTwoResponse)){
-        correct++
-        return true
-    }
-    if (answerThree.includes(answerThreeResponse)){
-        correct++
-        return true
-    }
+    } 
+
     else{
         incorrect++
         return false
     }
 }
 
-const feedback = (data) => {
+const score = (data) => {
     if (!data) {
         throw new Error('Uh Oh! Something went wrong')
     }
@@ -84,10 +77,10 @@ class Feedback extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
+            userQuestions: [],
             isLoaded: false,
             currentAnswer: '',
-            currentFeedback: '',
+            currentScore: '%',
             modalOpen: false,
         }
     }
@@ -98,22 +91,14 @@ class Feedback extends Component {
         });
     }
 
-    handleFormSubmit(results){
-        this.setState({
-            currentAnswer: answers(results),
-            currentFeedback: feedback(results),
-            modalOpen: true
-        })
-    };
-
     render(){
         return (
             <div>
                 <AnswerModal 
                     modalOpen={this.state.modalOpen}
-                    feedback={this.state.currentFeedback}
-                    formSubmit={(e) => this.handleFormSubmit(e)}
-                    closeModal={(e) => this.closeModal}
+                    answer={this.state.currentAnswer}
+                    score={this.state.currentScore}
+                    closeModal={(e) => this.closeModal(e)}
                 />
             </div>
         )
@@ -122,7 +107,8 @@ class Feedback extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        data: state.protectedData.data || [],
+        currentQuestion:state.protectedData.data.current,
+        userQuestions: state.protectedData.data,
     }
 }
 

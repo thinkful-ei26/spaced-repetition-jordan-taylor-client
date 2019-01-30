@@ -3,15 +3,45 @@ import {connect} from 'react-redux';
 import { fetchProtectedData } from '../actions/protected-data';
 
 class DisplayWords extends React.Component {
-    constructor(){
-        super();
+    // constructor(){
+    //     super();
 
-        this.state = {
-            submit: false
-        }
-    }
+        // this.state = {
+        //     submit: false, 
+        //     correctCount: 0,
+        //     incorrectCount: 0,
+        //     correct: false
+        // }
+
     componentDidMount(){
         this.props.dispatch(fetchProtectedData());
+    }
+
+    search(e){
+        e.preventDefault();
+        const currentQuestion = this.currentQuestion.value
+        if (!currentQuestion) {
+            throw new Error('Uh Oh! Something went wrong')
+        }
+        if (currentQuestion.question.includes(currentQuestion.answer)){
+            this.setState({
+                correctCount: this.correctCount++,
+                correct: true
+            })
+        } 
+    
+        else{
+            this.setState({
+                incorrectCount: this.incorrectCount++,
+                correct: false
+            })
+        }
+    }
+
+    submit(answer){
+        if (answer){
+            this.props.formSubmit(answer)
+        }
     }
 
     render() {
@@ -26,13 +56,16 @@ class DisplayWords extends React.Component {
         };
 
         return (
-            <div>
-                <h1 className="current-question">
-                {questionToDisplay()}                  
-                </h1>
-                <input className ="input" type="search" ref={input => (this.input = input)} />
-                <button type="submit" className ="submit-button">Check Answer</button>
-            </div>
+            <section className="display-words" onSubmit={() => this.submit()}>
+                {this.props.modalOpen ? 'The model will go here' : ''}
+                <div>
+                    <h1 className="current-question">
+                    {questionToDisplay()}                  
+                    </h1>
+                    <input className ="input" type="search" ref={input => (this.input = input)} />
+                    <button type="submit" className ="submit-button" onSubmit={() => this.submit()}>Check Answer</button>
+                </div>
+            </section>
         )
     }
 }
@@ -45,7 +78,8 @@ const mapStateToProps = state => {
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         questions:currentUser.questions,
         userQuestions: state.protectedData.data,
-        currentQuestion:state.protectedData.data.current
+        currentQuestion:state.protectedData.data.current,
+        modalOpen: state.protectedData.modalOpen
     };
 };
 

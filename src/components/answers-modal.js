@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+
+import DisplayWords from './displayWords';
 
 const customStyles = {
     content : {
@@ -15,15 +17,12 @@ const customStyles = {
 
   Modal.setAppElement()
 
-  export default class AnswerModal extends Component {
+  class AnswerModal extends Component {
       constructor(){
           super();
       
       this.state = {
           modalIsOpen: false,
-          clicked: false,
-          correct: false,
-          wrong: false
       };
 
       this.openModal = this.openModal.bind(this);
@@ -45,13 +44,31 @@ const customStyles = {
             <div>
                 <Modal
                     isOpen={this.props.modalOpen}
+                    display={(e) => this.displayWords(e)}
                     onAfterOpen={this.afterOpenModal}
                     style={customStyles}
-                    contentLabel="Gender Score Card"
+                    contentLabel="User Score Card"
                 >
+                    <h2 ref={subtitle => this.subtitle = subtitle}>{this.props.score}</h2>
                     <button onClick={this.props.closeModal}>close</button>
                 </Modal>
+                <DisplayWords
+                    isOpen={this.props.modalOpen}
+                    display={(e) => this.displayWords(e)}
+                    style={customStyles}
+                    contentLabel="User Score Card"
+                />
             </div>
         )
     }
-}
+};
+
+const mapStateToProps = (state) => {
+    return {
+        username: state.auth.currentUser.username,
+        userQuestions: state.protectedData.data,
+        currentQuestion:state.protectedData.data.current,
+    }
+};
+
+export default connect(mapStateToProps)(AnswerModal);

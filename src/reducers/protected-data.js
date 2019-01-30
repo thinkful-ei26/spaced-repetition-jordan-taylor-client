@@ -5,7 +5,8 @@ import {
 
 const initialState = {
     data: {current:null, questions:[]},
-    error: null
+    error: null,
+    modalOpen: false,
 };
 
 export default function reducer(state = initialState, action) {
