@@ -15,16 +15,10 @@ export class Dashboard extends React.Component {
     render() {
         return (
             <div className="dashboard">
-                {/* <div className="dashboard-username">
-                    Username: {this.props.username}
-                </div> */}
                 <div className="dashboard-name">Hello {this.props.name.toUpperCase()}</div>
                 <div className="dashboard-current-score">
                 Your current score is: <UserProgress />
                 </div>
-                {/* <div className="dashboard-protected-data">
-                    Protected data: {this.props.protectedData}
-                </div> */}
                 <Feedback />
                 <DisplayWords />
                 <Next />
