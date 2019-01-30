@@ -14,7 +14,6 @@
     display: inline-flex;
     height: 15px;
     box-align: center;
-    font-size: calc(3px + 2vmin);
 }
 
 .header-bar-ul {
