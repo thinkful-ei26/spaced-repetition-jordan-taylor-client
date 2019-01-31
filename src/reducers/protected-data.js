@@ -4,7 +4,7 @@ import {
 } from '../actions/protected-data';
 
 const initialState = {
-    data: {current:null, questions:[]},
+    data: {head: 0, questions:[]},
     error: null,
     modalOpen: false,
 };
