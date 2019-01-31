@@ -38,11 +38,11 @@ class DisplayWords extends React.Component {
     render() {
 
        const questionToDisplay = (data) => {
-           if(this.props.currentQuestion === null){
+           if(this.props.questions === null){
                return <div>Loading questions...</div>
            }
            else{ 
-               return <div>{this.props.currentQuestion.question}</div>
+               return <div>{this.props.questions.text}</div>
             }
         };
 
@@ -67,9 +67,9 @@ const mapStateToProps = state => {
     return {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
-        questions:currentUser.questions,
-        userQuestions: state.protectedData.data,
-        currentQuestion:state.protectedData.data.current,
+        questions: currentUser.questions,
+        // questions: state.protectedData.data,
+        head: currentUser.head,
         modalOpen: state.protectedData.modalOpen
     };
 };
