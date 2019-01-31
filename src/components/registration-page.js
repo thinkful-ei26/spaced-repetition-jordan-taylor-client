@@ -15,8 +15,8 @@ export function RegistrationPage(props) {
         <div className="registration-page">
             <h2 className="registration-page-h2">Sign up below to gain the knowledge you seek.</h2>
             <RegistrationForm /><br/>
-            <label className="registration-page-label">Already Registered? Login </label>
-            <Link to="/" style={{color: 'blue'}}>Here</Link>
+            <label className="registration-page-label">Already Registered?</label>
+            <Link to="/" style={{color: 'blue'}}>login</Link>
         </div>
     );
 }

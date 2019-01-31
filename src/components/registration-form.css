@@ -6,6 +6,7 @@
     justify-content: center;
     flex-direction: column;
     margin: 25px;
+    border-radius: 15px;
     background-image: linear-gradient(
         to right bottom, 
         rgba(219, 217, 214, 0.7), 
