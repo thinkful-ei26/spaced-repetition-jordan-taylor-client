@@ -1,0 +1,22 @@
+.registration-page {
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: rgb(0, 0, 0);
+    margin: 40px;
+  }
+
+  .registration-page-h2 {
+      padding: 0px;
+      margin: 5px;
+      font-size: calc(12px + 2vmin); 
+  }
+
+  .registration-page-label {
+    padding: 0px;
+    margin: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+
+

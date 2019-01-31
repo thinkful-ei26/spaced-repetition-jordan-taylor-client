@@ -1,0 +1,21 @@
+.registration-form {
+    background-color: #ffffff;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 25px;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba(219, 217, 214, 0.7), 
+        rgba(177, 175, 174, 0.7)),
+        url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/k-pd9-jj-tong-0033_1_1.jpg?auto=format&bg=F4F4F3&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-1.1.0&mark=rawpixel-watermark.png&markalpha=90&markpad=13&markscale=10&markx=25&q=75&usm=15&vib=3&w=1000&s=409ae130f3db7b82bb62484e416a8ff8');
+  }
+
+.registration-form-label {
+    font-size: calc(7px + 2vmin);
+    color: rgb(43, 41, 41);
+}
+
+

@@ -57,9 +57,9 @@ class Feedback extends Component {
         return (
             <div>
                 <AnswerModal 
-                    modalOpen={this.state.modalOpen}
-                    answer={this.state.currentAnswer}
-                    score={this.state.currentScore}
+                    modalOpen={this.props.modalOpen}
+                    answer={this.props.currentAnswer}
+                    score={this.props.currentScore}
                     closeModal={(e) => this.closeModal(e)}
                 />
             </div>
@@ -71,6 +71,7 @@ const mapStateToProps = (state) => {
     return {
         currentQuestion:state.protectedData.data.current,
         userQuestions: state.protectedData.data,
+        modalOpen: state.protectedData.modalOpen
     }
 }
 
