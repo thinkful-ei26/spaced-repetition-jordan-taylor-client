@@ -47,7 +47,7 @@ const mapStateToProps = state => {
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         questions:currentUser.questions,
         userQuestions: state.protectedData.data,
-        currentQuestion:state.protectedData.data.current, 
+        currentQuestion:state.protectedData.data,
         nextQuestion:state.question.next
     };
 };
