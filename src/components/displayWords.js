@@ -36,7 +36,7 @@ class DisplayWords extends React.Component {
             </div>
         )
     }
-}
+} 
 
 const mapStateToProps = state => {
     const {currentUser} = state.auth;
