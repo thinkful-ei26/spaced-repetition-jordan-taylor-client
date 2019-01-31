@@ -25,12 +25,15 @@
     padding: 0px;
     margin: 5px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    font-size: calc(8px + 2vmin);
   }
 
   .landing-h4-main {
-    padding: 0px;
+    padding: 25px;
     margin: 5px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: calc(8px + 2vmin);
   }
 
   .landing-register {

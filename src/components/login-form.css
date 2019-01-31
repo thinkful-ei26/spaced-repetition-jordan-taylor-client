@@ -1,0 +1,6 @@
+.login-form {
+    padding: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: calc(8px + 2vmin);
+    font-weight: normal;
+}
