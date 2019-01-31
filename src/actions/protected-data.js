@@ -21,7 +21,7 @@ export const fetchProtectedDataError = error => ({
 
 export const fetchProtectedData = () => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
-    dispatch(fetchProtectedDataRequest ());
+    dispatch(fetchProtectedDataRequest());
     return fetch(`${API_BASE_URL}/api/questions`, {
         method: 'GET',
         headers: {
@@ -37,7 +37,12 @@ export const fetchProtectedData = () => (dispatch, getState) => {
             }
             return res.json();
             })
-        .then(({data}) => dispatch(fetchProtectedDataSuccess(data)))
+        .then(({data}) =>{ 
+            console.log(data);
+            dispatch(fetchProtectedDataSuccess(data))
+            
+        }
+            )
         // .then(({data}) => dispatch(fetchProtectedDataSuccess(data.current.value)))
         .catch(err => {
             dispatch(fetchProtectedDataError(err));
