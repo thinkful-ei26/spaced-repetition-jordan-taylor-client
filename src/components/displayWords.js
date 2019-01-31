@@ -3,15 +3,6 @@ import {connect} from 'react-redux';
 import { fetchProtectedData } from '../actions/protected-data';
 
 class DisplayWords extends React.Component {
-    // constructor(){
-    //     super();
-
-        // this.state = {
-        //     submit: false, 
-        //     correctCount: 0,
-        //     incorrectCount: 0,
-        //     correct: false
-        // }
 
     componentDidMount(){
         this.props.dispatch(fetchProtectedData());

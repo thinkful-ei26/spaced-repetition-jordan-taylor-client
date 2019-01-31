@@ -15,13 +15,6 @@ const randomData = (data) => {
 }
 
 class Next extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            randomQuestion: '',
-            userData: []
-        }
-    }
 
     handleButtonClick(results){
         this.setState({
