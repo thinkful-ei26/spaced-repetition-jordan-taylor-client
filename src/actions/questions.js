@@ -16,7 +16,7 @@ export const fetchQuestion = id => dispatch => {
     return res.json();
     })
     .then(question => {
-      console.log(question.next.value.question);
+      console.log(question);
       dispatch(fetchQuestionSuccess(question.next.value.question))
     })
 };

@@ -19,10 +19,10 @@ class Next extends Component {
     handleButtonClick(results){
         console.log(this.props.userData.id);
         const currentUserId = this.props.userData.id;
-        this.setState({
-            // randomQuestion: randomData(results),
-            userData: this.randomQuestion
-        }); 
+        // this.setState({
+        //     // randomQuestion: randomData(results),
+        //     userData: this.randomQuestion
+        // }); 
         return this.props.dispatch(fetchQuestion(currentUserId));
     }
 
@@ -38,7 +38,7 @@ class Next extends Component {
 const mapStateToProps = (state) => {
     return {
         userData: state.auth.currentUser || [],
-        
+
     }
 }
 

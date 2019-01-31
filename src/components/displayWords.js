@@ -4,14 +4,6 @@ import { fetchProtectedData } from '../actions/protected-data';
 
 class DisplayWords extends React.Component {
 
-<<<<<<< HEAD
-        this.state = {
-            checkAnswer: false, 
-            newQuestion:false
-        }
-    }
-=======
->>>>>>> 7523ea48ee604127ee3f7f4b0e6d04fa959bd5ac
     componentDidMount(){
         this.props.dispatch(fetchProtectedData());
     }
@@ -46,24 +38,18 @@ class DisplayWords extends React.Component {
     render() {
 
        const questionToDisplay = (data) => {
-           if(this.props.currentQuestion === null){
+           if(this.props.currentQuestion === null) {
                return <div>Loading questions...</div>
            }
-           else{ 
-               return <div>{this.props.currentQuestion.question}</div>
+          if(this.props.nextQuestion !== '') {
+            return <div>{this.props.nextQuestion}</div>
+          }
+           else { 
+               return <div>{this.props.currentQuestion}</div>
             }
         };
 
         return (
-<<<<<<< HEAD
-            <div>
-                <h1 className="current-question">
-                {questionToDisplay()}                  
-                </h1>
-                <input className ="input" type="search" ref={input => (this.input = input)} />
-                <button type="submit" className ="submit-button">Check Answer</button>
-            </div>
-=======
             <section className="display-words" onSubmit={() => this.submit()}>
                 {this.props.modalOpen ? 'The model will go here' : ''}
                 <div>
@@ -74,7 +60,6 @@ class DisplayWords extends React.Component {
                     <button type="submit" className ="submit-button" onSubmit={() => this.submit()}>Check Answer</button>
                 </div>
             </section>
->>>>>>> 7523ea48ee604127ee3f7f4b0e6d04fa959bd5ac
         )
     }
 } 
@@ -88,13 +73,9 @@ const mapStateToProps = state => {
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         questions:currentUser.questions,
         userQuestions: state.protectedData.data,
-<<<<<<< HEAD
-        currentQuestion:state.protectedData.data,
-        nextQuestion:state.question.next
-=======
         currentQuestion:state.protectedData.data.current,
-        modalOpen: state.protectedData.modalOpen
->>>>>>> 7523ea48ee604127ee3f7f4b0e6d04fa959bd5ac
+        modalOpen: state.protectedData.modalOpen, 
+        nextQuestion:state.question.next
     };
 };
 
