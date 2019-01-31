@@ -5,7 +5,9 @@ import {fetchProtectedData} from '../actions/protected-data';
 import Feedback from './feedback';
 import Next from './next-button';
 import UserProgress from './user-progress';
-import DisplayWords from './displayWords';
+// import DisplayWords from './displayWords';
+
+import './dashboard.css';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -19,8 +21,8 @@ export class Dashboard extends React.Component {
                 <div className="dashboard-current-score">
                 Your current score is: <UserProgress />
                 </div>
-                <Feedback />
-                <DisplayWords />
+                {/* <Feedback /> */}
+                {/* <DisplayWords /> */}
                 <Next />
             </div>
         );

@@ -8,6 +8,7 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: rgb(0, 0, 0);
+    opacity: 0.8;
   }
 
 .log-out {
@@ -22,6 +23,6 @@
     margin: 10px;
     border: 1px solid #cafff3;
     color:  #166d59;
-    font-size: calc(6px + 2vmin);
+    font-size: calc(2px + 2vmin);
 } 
 

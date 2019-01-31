@@ -15,13 +15,6 @@ import {fetchQuestion} from '../actions/questions';
 // }
 
 class Next extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            randomQuestion: '',
-            userData: []
-        }
-    }
 
     handleButtonClick(results){
         console.log(this.props.userData.id);

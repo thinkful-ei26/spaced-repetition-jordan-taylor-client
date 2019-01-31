@@ -2,14 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class UserProgress extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            correct: [],
-            incorrect: [],
-            userScore: ''
-        }
-    }
 
     render() {
         return (
