@@ -31,7 +31,7 @@ export const fetchProtectedData = () => (dispatch, getState) => {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => {
-            console.log(res);
+            console.log(res.body);
             if (!res.ok) {
                 throw new Error(res.statusText);
             }
