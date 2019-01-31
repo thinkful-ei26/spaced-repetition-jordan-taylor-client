@@ -38,7 +38,6 @@ class Next extends Component {
 const mapStateToProps = (state) => {
     return {
         userData: state.auth.currentUser || [],
-
     }
 }
 
