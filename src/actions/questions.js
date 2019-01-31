@@ -7,7 +7,7 @@ export const fetchQuestionSuccess = newQuestion => ({
 });
 
 export const fetchQuestion = id => dispatch => {
-  fetch(`${API_BASE_URL}/auth/users/${id}/current`)
+  fetch(`${API_BASE_URL}/api/questions`)
     .then(res => {
       console.log(res);
       if (!res.ok) {
@@ -17,7 +17,7 @@ export const fetchQuestion = id => dispatch => {
     })
     .then(question => {
       console.log(question);
-      dispatch(fetchQuestionSuccess(question.next.value.question))
+      dispatch(fetchQuestionSuccess(question.user.head))
     })
 };
 
