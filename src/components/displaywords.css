@@ -1,0 +1,13 @@
+.current-question {
+    padding: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    margin: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* text-decoration: underline; */
+    font-size: calc(24px + 10vmin);
+    border: 1px solid black;
+    opacity: .7;
+}

@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux'; 
 import { fetchProtectedData } from '../actions/protected-data';
 
+import './displaywords.css'
+
 class DisplayWords extends React.Component {
 
     componentDidMount(){

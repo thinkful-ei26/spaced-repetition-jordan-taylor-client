@@ -29,8 +29,12 @@ export class HeaderBar extends React.Component {
             <div className="header-bar">
                 <Header />
                 <ul className="header-bar-ul">
-                    {currentUser}
-                    {logOutButton}
+                    <li className ="header-bar-user">
+                        {currentUser}
+                    </li>
+                    <li className ="header-bar-button">
+                        {logOutButton}
+                    </li>
                 </ul>
             </div>
         );

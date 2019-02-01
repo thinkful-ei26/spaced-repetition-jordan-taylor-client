@@ -11,18 +11,22 @@
     opacity: 0.8;
   }
 
-.log-out {
-    display: inline-flex;
-    height: 15px;
-    box-align: center;
-}
-
 .header-bar-ul {
     display: contents;
     list-style: none;
-    margin: 10px;
+    margin: 15px;
     border: 1px solid #cafff3;
-    color:  #166d59;
+    color:  #4e6e67;
     font-size: calc(2px + 2vmin);
 } 
+
+.header-bar-user {
+    font-size: calc(4px + 2vmin);
+}
+
+.header-bar-button {
+    margin: 10px;
+    height: 15px;
+    box-align: center;
+}
 
