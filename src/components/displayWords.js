@@ -58,8 +58,7 @@ class DisplayWords extends React.Component {
                     <h1 className="current-question">
                     {questionToDisplay()}                  
                     </h1>
-                    <input className ="input" type="search" ref={input => (this.input = input)} />
-                    <button type="submit" className ="submit-button" onSubmit={() => this.submit()}>Check Answer</button>
+                    
                 </div>
             </section>
         )

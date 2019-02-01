@@ -21,7 +21,7 @@ export class Dashboard extends React.Component {
                 <div className="dashboard-current-score">
                 Your current score is: <UserProgress />
                 </div>
-                {/* <Feedback /> */}
+                <Feedback />
                 <DisplayWords />
                 <Next />
             </div>

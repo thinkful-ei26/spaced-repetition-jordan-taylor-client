@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
+import {required, nonEmpty} from '../validators';
+import {Field, reduxForm, focus} from 'redux-form';
+import { feedback } from '../actions/feedback';
 
+import Input from './input';
 import AnswerModal from './answers-modal';
 
 const score = (data) => {
@@ -47,32 +51,57 @@ const score = (data) => {
     }
 }
 
-class Feedback extends Component {
+export class Feedback extends Component {
+    onSubmit(values) {
+        console.log(values);
+        return this.props.dispatch(feedback(values.userAnswer));
+    }
 
     closeModal() {
         
     }
 
     render(){
+        let error;
+        if (this.props.error) {
+            error = (
+                <div className="form-error" aria-live="polite">
+                    {this.props.error}
+                </div>
+            );
+        }
         return (
-            <div>
-                <AnswerModal 
-                    modalOpen={this.props.modalOpen}
-                    answer={this.props.currentAnswer}
-                    score={this.props.currentScore}
-                    closeModal={(e) => this.closeModal(e)}
+            <form 
+            className="userAnswerForm"
+            onSubmit= {this.props.handleSubmit(values=> 
+                this.onSubmit(values)
+                )}>
+                {error}
+                <label htmlFor="answer">Enter Your Answer Here:</label>
+                <Field
+                    component="input"
+                    type="text"
+                    name="userAnswer"
+                    id="userAnswer"
+                    validate={[required, nonEmpty]}
                 />
-            </div>
+                <button disabled={this.props.pristine || this.props.submitting}>
+                    Check Your Answer
+                </button>
+                </form>
         )
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        currentQuestion:state.protectedData.data.current,
-        userQuestions: state.protectedData.data,
-        modalOpen: state.protectedData.modalOpen
-    }
-}
+// const mapStateToProps = (state) => {
+//     return {
+//         currentQuestion:state.protectedData.data.current,
+//         userQuestions: state.protectedData.data,
+//         modalOpen: state.protectedData.modalOpen
+//     }
+// }
 
-export default connect(mapStateToProps)(Feedback);
+export default reduxForm({
+    form: 'feedback',
+    onSubmitFail: (errors, dispatch) => dispatch(focus('userAnswer'))
+})(Feedback);
