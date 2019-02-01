@@ -79,5 +79,5 @@ const mapStateToProps = state => {
         modalOpen: state.protectedData.modalOpen
     };
 };
-
+//
 export default connect(mapStateToProps)(DisplayWords);
