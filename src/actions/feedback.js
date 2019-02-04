@@ -1,6 +1,7 @@
 
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
+import { saveServerResponse } from '../local-storage';
 
 export const SERVER_RESPONSE_REQUEST = 'SERVER_RESPONSE_REQUEST';
 export const serverRequest = () => ({
@@ -19,6 +20,12 @@ export const serverError = error => ({
     error
 });
 
+const storeServerResponse = (response, dispatch) => {
+
+    dispatch(serverSuccess(response));
+    // saveServerResponse(response);
+};
+
 export const feedback = (answer) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     dispatch(serverRequest());
@@ -34,15 +41,12 @@ export const feedback = (answer) => (dispatch, getState) => {
                 answer
             })
         })
-            // Reject any requests which don't return a 200 status, creating
-            // errors which follow a consistent format
-            // .then(res => normalizeResponseErrors(res))
             .then(res =>{ 
                 return res.json()
             })
             .then((serverFeedback) =>{ 
                 console.log(serverFeedback);
-                serverSuccess(serverFeedback);
+                storeServerResponse(serverFeedback,dispatch);
             })
             .catch(err => {
                 dispatch(serverError(err));

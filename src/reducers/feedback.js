@@ -3,9 +3,8 @@ SERVER_RESPONSE_SUCCESS,
 SERVER_RESPONSE_ERROR } from '../actions/feedback';
 
 const initialState = {
-    response: null,
-    error: null,
-    answer:''
+    response: {},
+    error: null
 };
 
 export default function reducer(state = initialState, action) {

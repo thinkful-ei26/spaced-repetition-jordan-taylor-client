@@ -19,7 +19,7 @@ export class HeaderBar extends React.Component {
         if (this.props.loggedIn) {
 
             currentUser = (
-                <li className="current-user">Logged in as <span className="user-span">{this.props.currentUser.username}</span></li>
+                <span className="current-user">Logged in as <span className="user-span">{this.props.currentUser.username}</span></span>
             );
             logOutButton = (
                 <button className ="log-out" onClick={() => this.logOut()}>Log out</button>

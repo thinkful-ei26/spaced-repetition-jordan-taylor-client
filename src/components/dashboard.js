@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
-import Feedback from './feedback';
+import AnswerInput from './answerInput';
 import Next from './next-button';
 import UserProgress from './user-progress';
 import DisplayWords from './displayWords';
@@ -21,7 +21,7 @@ export class Dashboard extends React.Component {
                 <div className="dashboard-current-score">
                 Your current score is: <UserProgress />
                 </div>
-                <Feedback />
+                <AnswerInput />
                 <DisplayWords />
                 <Next />
             </div>

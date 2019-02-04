@@ -13,3 +13,9 @@ export const clearAuthToken = () => {
         localStorage.removeItem('authToken');
     } catch (e) {}
 };
+
+export const saveServerResponse = response => {
+    try {
+        localStorage.setItem('serverResponse', response);
+    } catch (e) {}
+};

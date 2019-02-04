@@ -15,6 +15,7 @@ const store = createStore(
         auth: authReducer,
         protectedData: protectedReducer, 
         question:questionReducer,
+        serverResponse:feedbackReducer
     }),
     applyMiddleware(thunk)
 );

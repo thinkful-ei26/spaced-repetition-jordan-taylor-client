@@ -17,7 +17,7 @@ export const fetchQuestion = id => dispatch => {
     })
     .then(question => {
       console.log(question);
-      dispatch(fetchQuestionSuccess(question.text))
+      dispatch(fetchQuestionSuccess(question))
     })
 };
 
