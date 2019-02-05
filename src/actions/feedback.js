@@ -1,7 +1,5 @@
 
 import {API_BASE_URL} from '../config';
-import {normalizeResponseErrors} from './utils';
-import { saveServerResponse } from '../local-storage';
 
 export const SERVER_RESPONSE_REQUEST = 'SERVER_RESPONSE_REQUEST';
 export const serverRequest = () => ({
@@ -21,9 +19,7 @@ export const serverError = error => ({
 });
 
 const storeServerResponse = (response, dispatch) => {
-
     dispatch(serverSuccess(response));
-    // saveServerResponse(response);
 };
 
 export const feedback = (answer) => (dispatch, getState) => {
@@ -41,15 +37,15 @@ export const feedback = (answer) => (dispatch, getState) => {
                 answer
             })
         })
-            .then(res =>{ 
-                return res.json()
-            })
-            .then((serverFeedback) =>{ 
-                console.log(serverFeedback);
-                storeServerResponse(serverFeedback,dispatch);
-            })
-            .catch(err => {
-                dispatch(serverError(err));
-            })
-        );
+        .then(res =>{ 
+            return res.json()
+        })
+        .then((serverFeedback) =>{ 
+            console.log('server feedback:', serverFeedback);
+            storeServerResponse(serverFeedback,dispatch);
+        })
+        .catch(err => {
+            dispatch(serverError(err));
+        })
+    );
 }

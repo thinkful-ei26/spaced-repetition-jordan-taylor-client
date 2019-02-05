@@ -38,8 +38,13 @@ export const fetchProtectedData = () => (dispatch, getState) => {
             return res.json();
             })
         .then((data) => { 
-            console.log(data[0].text);
-            dispatch(fetchProtectedDataSuccess(data[0].text))
+            console.log('protected data being sent', data);
+            const returnObj = {
+                currentWord:data[0].text, 
+                numberOfCorrectAnswersForWord:data[0].score, 
+                wordsAttempts:data[0].attempts
+            }
+            dispatch(fetchProtectedDataSuccess(returnObj))
             
         }
             )

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {fetchQuestion} from '../actions/questions';
+import { fetchProtectedData } from '../actions/protected-data';
 
 // const randomData = (data) => {
 //     if (!data) {
@@ -15,8 +16,11 @@ import {fetchQuestion} from '../actions/questions';
 // }
 
 class Next extends Component {
+    componentDidMount(){
+        this.props.dispatch(fetchProtectedData());
+    }
 
-    handleButtonClick(results){
+    handleButtonClick(){
         console.log(this.props.userData.id);
         const currentUserId = this.props.userData.id;
         // this.setState({

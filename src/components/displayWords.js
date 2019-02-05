@@ -6,36 +6,15 @@ import './displaywords.css'
 
 class DisplayWords extends React.Component {
 
-    componentDidMount(){
-        this.props.dispatch(fetchProtectedData());
-    }
-
-    search(e){
-        e.preventDefault();
-        const currentQuestion = this.currentQuestion.value
-        if (!currentQuestion) {
-            throw new Error('Uh Oh! Something went wrong')
-        }
-        if (currentQuestion.question.includes(currentQuestion.answer)){
-            this.setState({
-                correctCount: this.correctCount++,
-                correct: true
-            })
-        } 
-    
-        else{
-            this.setState({
-                incorrectCount: this.incorrectCount++,
-                correct: false
-            })
-        }
-    }
-
-    submit(answer){
-        if (answer){
-            
-        }
-    }
+    // componentDidMount(){
+    //     this.props.dispatch(fetchProtectedData());
+    // }
+    // componentWillUpdate() {
+    //     this.props.dispatch(fetchProtectedData());
+    // }
+    // componentWillUnmount(){
+    //     this.props.dispatch(fetchProtectedData()); 
+    // }
 
     render() {
 
@@ -47,18 +26,16 @@ class DisplayWords extends React.Component {
                return <div>{ this.props.nextQuestion }</div>
            }
            else{ 
-               return <div>{this.props.currentQuestion}</div>
+               return <div>{this.props.currentQuestion.currentWord}</div>
             }
         };
 
         return (
-            <section className="display-words" onSubmit={() => this.submit()}>
-                {this.props.modalOpen ? 'The model will go here' : ''}
+            <section className="display-words" >     
                 <div>
                     <h1 className="current-question">
                     {questionToDisplay()}                  
-                    </h1>
-                    
+                    </h1> 
                 </div>
             </section>
         )
@@ -68,14 +45,15 @@ class DisplayWords extends React.Component {
 const mapStateToProps = state => {
     const {currentUser} = state.auth;
     console.log('state:', state); 
-    console.log(state.question.nextQuestion);
+    console.log('next question:', state.question.nextQuestion);
+    console.log('protected data:', state.protectedData.data);
     return {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         currentQuestion: state.protectedData.data,
         nextQuestion:state.question.nextQuestion,
-        head: currentUser.head,
-        modalOpen: state.protectedData.modalOpen
+        
+
     };
 };
 //

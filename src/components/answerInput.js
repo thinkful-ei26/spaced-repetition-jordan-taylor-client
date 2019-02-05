@@ -3,9 +3,14 @@ import React, { Component } from 'react';
 import {required, nonEmpty} from '../validators';
 import {Field, reduxForm, focus} from 'redux-form';
 import { feedback } from '../actions/feedback';
+import { fetchProtectedData } from '../actions/protected-data'
 
 
 export class AnswerInput extends Component {
+    
+    // componentDidMount() {
+    //     this.props.dispatch(fetchProtectedData());
+    // }
     
     onSubmit(values) {
         console.log(values);
