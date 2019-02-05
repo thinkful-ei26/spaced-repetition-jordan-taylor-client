@@ -9,14 +9,14 @@ export const fetchQuestionSuccess = newQuestion => ({
 export const fetchQuestion = id => dispatch => {
   fetch(`${API_BASE_URL}/auth/users/${id}/current`)
     .then(res => {
-      console.log(res);
+
       if (!res.ok) {
       return Promise.reject(res.statusText);
     }
     return res.json();
     })
     .then(question => {
-      console.log(question);
+
       dispatch(fetchQuestionSuccess(question))
     })
 };

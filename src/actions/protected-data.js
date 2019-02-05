@@ -31,23 +31,22 @@ export const fetchProtectedData = () => (dispatch, getState) => {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => {
-            console.log(res.body);
+
             if (!res.ok) {
                 throw new Error(res.statusText);
             }
             return res.json();
             })
         .then((data) => { 
-            console.log('protected data being sent', data);
+
             const returnObj = {
                 currentWord:data[0].text, 
                 numberOfCorrectAnswersForWord:data[0].score, 
                 wordsAttempts:data[0].attempts
             }
             dispatch(fetchProtectedDataSuccess(returnObj))
-            
         }
-            )
+        )
         // .then(({data}) => dispatch(fetchProtectedDataSuccess(data.current.value)))
         .catch(err => {
             dispatch(fetchProtectedDataError(err));

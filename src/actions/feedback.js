@@ -25,7 +25,7 @@ const storeServerResponse = (response, dispatch) => {
 export const feedback = (answer) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     dispatch(serverRequest());
-    console.log(answer); 
+ 
     return (
         fetch(`${API_BASE_URL}/api/questions/current`, {
             method: 'PUT',
@@ -41,7 +41,7 @@ export const feedback = (answer) => (dispatch, getState) => {
             return res.json()
         })
         .then((serverFeedback) =>{ 
-            console.log('server feedback:', serverFeedback);
+
             storeServerResponse(serverFeedback,dispatch);
         })
         .catch(err => {

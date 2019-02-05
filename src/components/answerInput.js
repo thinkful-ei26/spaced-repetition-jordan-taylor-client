@@ -7,17 +7,12 @@ import { fetchProtectedData } from '../actions/protected-data'
 
 
 export class AnswerInput extends Component {
-    
-    // componentDidMount() {
-    //     this.props.dispatch(fetchProtectedData());
-    // }
-    
+
     onSubmit(values) {
-        console.log(values);
         return this.props.dispatch(feedback(values.userAnswer));
     }
 
-    render(){
+    render() {
         let error;
         if (this.props.error) {
             error = (

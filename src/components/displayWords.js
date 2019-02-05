@@ -6,15 +6,6 @@ import './displaywords.css'
 
 class DisplayWords extends React.Component {
 
-    // componentDidMount(){
-    //     this.props.dispatch(fetchProtectedData());
-    // }
-    // componentWillUpdate() {
-    //     this.props.dispatch(fetchProtectedData());
-    // }
-    // componentWillUnmount(){
-    //     this.props.dispatch(fetchProtectedData()); 
-    // }
 
     render() {
 
@@ -44,9 +35,7 @@ class DisplayWords extends React.Component {
 
 const mapStateToProps = state => {
     const {currentUser} = state.auth;
-    console.log('state:', state); 
-    console.log('next question:', state.question.nextQuestion);
-    console.log('protected data:', state.protectedData.data);
+
     return {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
