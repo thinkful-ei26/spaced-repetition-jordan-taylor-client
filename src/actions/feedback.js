@@ -27,7 +27,7 @@ export const feedback = (answer) => (dispatch, getState) => {
     dispatch(serverRequest());
  
     return (
-        fetch(`${API_BASE_URL}/api/questions/current`, {
+        fetch(`${API_BASE_URL}api/questions/current`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
